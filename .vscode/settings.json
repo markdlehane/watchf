@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "motor.h": "c",
+        "pigpio.h": "c",
+        "gquark.h": "c",
+        "gtk.h": "c",
+        "stdlib.h": "c",
+        "getopt.h": "c",
+        "limits.h": "c",
+        "joystick.h": "c",
+        "input.h": "c"
+    },
+    "cmake.clearOutputBeforeBuild": false,
+}

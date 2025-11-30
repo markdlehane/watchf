@@ -1,0 +1,28 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cmake",
+			"label": "CMake: build",
+			"command": "build",
+			"targets": [
+				"all"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"detail": "CMake template build task"			
+		},
+		{
+			
+			"type":"shell",
+			"label": "Install target",
+			"command" : "${workspaceFolder}/install_target",
+			"group": "none",
+			"icon": {"color": "terminal.ansiBlue", "id": "agent"}
+			
+		}
+	]
+}

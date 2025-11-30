@@ -1,0 +1,4 @@
+#!/bin/bash
+# Install the build target to ~/.local/bin
+
+cp build/watchf ~/.local/bin/
