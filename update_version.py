@@ -1,5 +1,4 @@
-# Utility which generates a project for CMake with optional components.
-# The options include: CTest, Unity & the testing scafold.
+# Utility which updates a build number within source files.
 #
 import argparse
 
