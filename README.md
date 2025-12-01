@@ -40,24 +40,61 @@ The status check lines may be omitted if you require no output at all. This scri
 
 ## Usage example
 
+### Use with Sass flies, this command automatically compiles to CSS when the Sass files are saved:
 
-
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
-
-#### To monitor a simple sass file, compiling on changes:-
-
+```bash
+watchf -f sass/source.scss -e "sassc sass/source.scss ../public/assets/source.css"
 ```
-watchf -f filename.scss -e "sassc filename.scss ../public/assets/filename.css"
 
+Each time **sass/source.scss** is changed, the sassc compiler builds **source.css** and writes it to **../public/assets/**
+
+### Used to update source code build numbers when a source file is edited:
+
+```bash
+watchf -f "main.c" -e "python3 update_version.py main.c"
+```
+
+When an editor saves main.c, the script, update_version.py, searches for a line within main.c which contains the next **BUILD_NO = "NNN"**. 
+If the text is located, the script increments the value between the speach marks and writes the value back to the source file. So, BUILD_NO = "141" 
+becomes BUILD_NO = "142".  In practice the actual text for the build number would be as follows:
+
+```c
+/* Build number data. */
+static const char *VERSION_NO = "0.1.0";
+static const char *BUILD_NO = "141";
+```
+
+and after the update:
+
+```c
+/* Build number data. */
+static const char *VERSION_NO = "0.1.0";
+static const char *BUILD_NO = "142";
+```
+
+### To monitor a simple sass file, compiling on changes and running in the the background:-
+
+```bash
 nohuo watchf -f filename.scss -e "sassc filename.scss ../public/assets/filename.css" > /dev/null 2>&1 &
 ```
 
-#### To monitor a directory and compile the file that changes.
+or simple use the provided bash script **watch**:
 
-```
-watchf -f sass/*.scss -e sassc $1.scss ../public/assets/$1.css
+```bash
+watch "filename.scss" "sassc filename.scss ../public/assets/filename.css"
 ```
 
+### To monitor a directory and compile the file that changes.
+
+```bash
+watchf -f "sass/." -e "sassc $1.scss ../public/assets/$1.css"
+```
+
+### To copy graphics assets upon changes:
+
+```bash
+watch "private/assets" "cp private/assets/* ../public/assets/"
+```
 
 ## Development setup
 
@@ -67,6 +104,9 @@ For this project I used VsCode on any *nix environment (including WSL2 on Window
 | ----------- | ----------- | ----------- |
 | CMake Tools | Microsoft | Extended CMake support in Visual Studio Code |
 | C/C++ Extension Pack| Microsoft | Popular extensions for C++ development in Visual Studio Code |
+| CMake (3.18+) | Kitware | Open source toolkit for building, testing and packaging software |
+| GCC (11.4.0+) | GNU Software Foundataion | C & C++ compiler |
+| Python3 (3.10.12+) | PythonPython Software Foundation | Python version 3 |
 
 ## Release History
 
