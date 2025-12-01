@@ -8,7 +8,7 @@
  * watch.c module.s
  *
  * @version 0.1
- * @date 2025-11-23, Mark D Lehane.
+ * @date 2025-11-23
  * 
  * @copyright Copyright (c) 2025, Mark D Lehane.
  * 

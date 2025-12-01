@@ -1,5 +1,9 @@
 # Utility which updates a build number within source files.
-#
+# @author Mark Lehane (markdlehane@gmail.com)
+# @version 0.1
+# @date 2025-11-01, Mark D Lehane.
+# @copyright Copyright (c) 2025, Mark D Lehane.
+# 
 import argparse
 
 # Script build version number.
