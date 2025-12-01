@@ -1,11 +1,14 @@
 /**
  * @file watch.c
  * @author Mark Lehane (markdlehane@gmail.com)
- * @brief File watch functions.
+ * @brief Watch functions.
+ * @details This module provides methods that watch a file/directory for changes
+ * and invoke a user specified command to execute on change events.
+ *
  * @version 0.1
  * @date 2025-11-27
  * 
- * @copyright Copyright (c) 2025
+ * @copyright Copyright (c) 2025, Mark D Lehane.
  * 
  */
 
@@ -315,3 +318,5 @@ int watch_for_changes(const char *watch_target, const char *command, bool contin
     }
     return ret;
 }
+
+/* End. */

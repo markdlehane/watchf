@@ -2,12 +2,15 @@
  * @file main.c
  * @author Mark Lehane (markdlehane@gmail.com)
  * @brief Program entry point.
- * @details This file enables configuration through command 
- * line options and configuration files.
+ * @details This module is the program entry point for watchf. It
+ * enables the selection of the options that drive the program. Once
+ * the options have been decoded it passes off the main work to the
+ * watch.c module.s
+ *
  * @version 0.1
- * @date 2025-11-23
+ * @date 2025-11-23, Mark D Lehane.
  * 
- * @copyright Copyright (c) 2025
+ * @copyright Copyright (c) 2025, Mark D Lehane.
  * 
  */
 
