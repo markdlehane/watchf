@@ -6,7 +6,7 @@
 
 This tool enables the constant monitoring of resources in order to automate tasks such as compilation, installation, update and more.
 
-Originally put together as a fun way to refresh my knowledge of singala and inotify, this became a thoroughly useful tool when working
+Originally put together as a fun way to refresh my knowledge of signals and inotify, this became a thoroughly useful tool when working
 with sass, then automated testing and has now a staple in my project toolkit. 
 
 # Installation
