@@ -19,8 +19,8 @@
 #include <getopt.h>
 
 /* Build number data. */
-static const unsigned VERSION_NO = 0;
-static const char *BUILD_NO = "0.138";
+static const char *VERSION_NO = "0.1.0";
+static const char *BUILD_NO = "141";
 static const char *APP_TITLE = "File/Directory Watcher";
 static const char *APP_HELP = "Watches for a change on a file, files or directory,\nthen executes the given command";
 
@@ -110,7 +110,7 @@ static void report_path(const char *title) {
  * 
  */
 static void report_version(void) {
-    printf("Version %u:%s\n", VERSION_NO, BUILD_NO);
+    printf("Version %s.%s\n", VERSION_NO, BUILD_NO);
 }
 
 /**

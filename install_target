@@ -1,4 +1,50 @@
 #!/bin/bash
 # Install the build target to ~/.local/bin
 
-cp build/watchf ~/.local/bin/
+do_install() {
+    # Use a parameter after the function call as the return variable.
+    local  __resultvar=$1
+
+    # Perform the install.
+    if cp build/watchf ~/.local/bin/ > /dev/null 2>&1; then
+        # All good.
+        echo "Successful install"
+        local res=0
+    else
+        local res=1
+    fi;
+    # Return the result code.
+    eval $__resultvar="'$res'"
+}
+
+# Attempt to install the target. After  do_install "state" contains the result.
+do_install state
+
+# If an error occurred we can check for a running watchf.
+if [[ "$state" -eq 1 ]]; then
+    pid=`ps aux | grep watchf | grep custom.scss | awk '{ print $2 }'`
+    if [[ ${pid} ]]; then
+        state=2
+    fi
+fi
+
+# If watchf is running ask the user if they want to stop it.
+if [[ "$state" -eq 2 ]]; then
+    while true; do
+        read -p "watchf is running. woud you like to stop it and try again? " yn
+        case $yn in
+            [Yy]* ) state=3; break;;
+            [Nn]* ) run=0; exit;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+fi
+
+# If the user would like to stop watch and reinstall then do it.
+if [[ "$state" -eq 3 ]]; then
+    kill -9 $pid
+    do_install state
+fi
+exit 1
+
+# End.

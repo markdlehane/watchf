@@ -1,0 +1,4 @@
+#!/bin/bash
+nohup watchf -f $1 -e "sassc $1 $2" > /dev/null 2>&1 &
+status=$?
+[ $status -eq 0 ] && echo "Successfully Watching $1" || echo "Failed to watch $cmd."
